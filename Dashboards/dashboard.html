@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churn Radar — Monitoring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1>Monitoring</h1>
+    <p class="tagline">Prediction volume, churn trend, and whether live traffic still looks like training data.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="stat-row" id="stat-row">
+    <div class="stat-card">
+      <span class="stat-value" id="stat-total">—</span>
+      <span class="stat-label">Total predictions logged</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" id="stat-churn-rate">—</span>
+      <span class="stat-label">Overall churn rate</span>
+    </div>
+    <div class="stat-card" id="stat-drift-card">
+      <span class="stat-value" id="stat-drift">—</span>
+      <span class="stat-label">Data drift status</span>
+    </div>
+  </section>
+
+  <section class="console">
+    <div class="panel-heading">
+      <h2>Volume &amp; churn rate</h2>
+      <p>Predictions per day and the share flagged as churn risk, last 14 days.</p>
+    </div>
+    <div class="chart-wrap">
+      <canvas id="volume-chart"></canvas>
+    </div>
+  </section>
+
+  <section class="console">
+    <div class="panel-heading">
+      <h2>Drift detail</h2>
+      <p>Live feature distributions compared against the training baseline.</p>
+    </div>
+    <div class="drift-grid" id="drift-grid">
+      <p class="dropzone-primary" id="drift-empty">Run some predictions first, then reload this page.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Reads from <code>/monitoring/summary</code> and <code>/monitoring/drift</code>. Backend: <code>http://127.0.0.1:8000</code></p>
+</footer>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

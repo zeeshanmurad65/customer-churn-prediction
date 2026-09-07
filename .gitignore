@@ -1,0 +1,13 @@
+# Runtime-generated database — regenerated fresh from schema.sql on
+# every Docker build; committing it would also leak whatever test
+# predictions you've logged locally.
+churn.db
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS cruft
+.DS_Store
+Thumbs.db

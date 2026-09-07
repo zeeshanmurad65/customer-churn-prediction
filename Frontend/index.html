@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Churn Radar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <h1>Churn Radar</h1>
+    <p class="tagline">Reads a customer's account signal and tells you how close it sits to churn.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- SINGLE CUSTOMER SECTION -->
+  <section class="console" aria-label="Single customer prediction">
+    <div class="console-grid">
+
+      <form id="customer-form" class="form-panel">
+        <div class="panel-heading">
+          <h2>Single customer</h2>
+          <p>Enter one customer's account details.</p>
+        </div>
+
+        <fieldset>
+          <legend>Account</legend>
+          <div class="field-row">
+            <label for="gender">Gender
+              <select id="gender" name="gender" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+              </select>
+            </label>
+            <label for="SeniorCitizen">Senior citizen
+              <select id="SeniorCitizen" name="SeniorCitizen" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="Partner">Has partner
+              <select id="Partner" name="Partner" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </label>
+            <label for="Dependents">Has dependents
+              <select id="Dependents" name="Dependents" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="tenure">Tenure (months)
+              <input type="number" id="tenure" name="tenure" min="0" value="12" required>
+            </label>
+            <label for="Contract">Contract
+              <select id="Contract" name="Contract" required>
+                <option value="Month-to-month">Month-to-month</option>
+                <option value="One year">One year</option>
+                <option value="Two year">Two year</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Services</legend>
+          <div class="field-row">
+            <label for="PhoneService">Phone service
+              <select id="PhoneService" name="PhoneService" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </label>
+            <label for="MultipleLines">Multiple lines
+              <select id="MultipleLines" name="MultipleLines" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No phone service">No phone service</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="InternetService">Internet service
+              <select id="InternetService" name="InternetService" required>
+                <option value="Fiber optic">Fiber optic</option>
+                <option value="DSL">DSL</option>
+                <option value="No">No</option>
+              </select>
+            </label>
+            <label for="OnlineSecurity">Online security
+              <select id="OnlineSecurity" name="OnlineSecurity" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No internet service">No internet service</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="OnlineBackup">Online backup
+              <select id="OnlineBackup" name="OnlineBackup" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No internet service">No internet service</option>
+              </select>
+            </label>
+            <label for="DeviceProtection">Device protection
+              <select id="DeviceProtection" name="DeviceProtection" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No internet service">No internet service</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="TechSupport">Tech support
+              <select id="TechSupport" name="TechSupport" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No internet service">No internet service</option>
+              </select>
+            </label>
+            <label for="StreamingTV">Streaming TV
+              <select id="StreamingTV" name="StreamingTV" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No internet service">No internet service</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="StreamingMovies">Streaming movies
+              <select id="StreamingMovies" name="StreamingMovies" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No internet service">No internet service</option>
+              </select>
+            </label>
+            <span aria-hidden="true"></span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Billing</legend>
+          <div class="field-row">
+            <label for="PaperlessBilling">Paperless billing
+              <select id="PaperlessBilling" name="PaperlessBilling" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
+            </label>
+            <label for="PaymentMethod">Payment method
+              <select id="PaymentMethod" name="PaymentMethod" required>
+                <option value="Electronic check">Electronic check</option>
+                <option value="Mailed check">Mailed check</option>
+                <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
+                <option value="Credit card (automatic)">Credit card (automatic)</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-row">
+            <label for="MonthlyCharges">Monthly charges ($)
+              <input type="number" id="MonthlyCharges" name="MonthlyCharges" min="0" step="0.01" value="70.35" required>
+            </label>
+            <label for="TotalCharges">Total charges ($)
+              <input type="number" id="TotalCharges" name="TotalCharges" min="0" step="0.01" value="845.20" required>
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn-primary">Read signal</button>
+        <p class="form-error" id="form-error" role="alert"></p>
+      </form>
+
+      <div class="result-panel">
+        <div class="panel-heading">
+          <h2>Result</h2>
+          <p>Waits for a submitted customer.</p>
+        </div>
+
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 240 150" class="gauge" id="gauge-svg">
+            <path d="M 20 130 A 100 100 0 0 1 220 130" class="gauge-track" />
+            <path d="M 20 130 A 100 100 0 0 1 220 130" class="gauge-fill" id="gauge-fill" />
+            <circle cx="120" cy="130" r="4" fill="var(--ink-3)"></circle>
+          </svg>
+          <div class="gauge-readout">
+            <span class="gauge-value" id="gauge-value">—</span>
+            <span class="gauge-label" id="gauge-caption">Awaiting input</span>
+          </div>
+        </div>
+
+        <div class="verdict" id="verdict-block" hidden>
+          <span class="verdict-tag" id="verdict-tag"></span>
+          <p id="verdict-text"></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BATCH SECTION -->
+  <section class="console batch" aria-label="Batch CSV prediction">
+    <div class="panel-heading">
+      <h2>Batch — upload a CSV</h2>
+      <p>Score a whole customer file at once. Needs the same columns as a single customer, one per row.</p>
+    </div>
+
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="csv-input" accept=".csv" hidden>
+      <p class="dropzone-primary">Drop a CSV here, or <button type="button" id="browse-btn" class="link-btn">choose a file</button></p>
+      <p class="dropzone-file" id="dropzone-filename"></p>
+    </div>
+
+    <button type="button" id="batch-submit" class="btn-primary" disabled>Score file</button>
+    <p class="form-error" id="batch-error" role="alert"></p>
+
+    <div class="batch-results" id="batch-results" hidden>
+      <div class="batch-summary" id="batch-summary"></div>
+      <a id="download-link" class="btn-secondary" download="predictions.csv">Download results CSV</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Predictions come from a trained model and reflect statistical risk, not certainty. Backend: <code>http://127.0.0.1:8000</code></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

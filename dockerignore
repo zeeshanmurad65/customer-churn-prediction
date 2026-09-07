@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.ipynb
+Frontend/
+Dashboards/
+Customer_Churn.html
+WA_Fn-UseC_-Telco-Customer-Churn.csv
+rf_best.pkl
+README.md
+.git/
